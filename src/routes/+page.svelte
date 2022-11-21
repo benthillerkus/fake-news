@@ -41,10 +41,6 @@
     {/each}
     <hr />
     <div>
-      <button
-        on:click|preventDefault={() => navigator.clipboard.writeText(link)}
-        >Copy Link</button
-      >
       <a href={link}>Visit {config.siteName}</a>
     </div>
 
@@ -56,6 +52,12 @@
   <div id="preview">
     <Publication {config} {serialized}><Article {config} /></Publication>
   </div>
+  <label id="clipboard">
+    <span>Copy link to clipboard</span>
+    <button on:click|preventDefault={() => navigator.clipboard.writeText(link)}
+      >📌</button
+    >
+  </label>
 </main>
 
 <style>
@@ -73,6 +75,34 @@
     grid-template-areas:
       "title title title"
       "form divider iframe";
+  }
+
+  #clipboard {
+    grid-area: title;
+    justify-self: end;
+    align-self: start;
+    translate: -50% 50%;
+  }
+
+  #clipboard span {
+    opacity: 0;
+    background-color: white;
+    border-radius: 3px;
+    padding: 5px;
+  }
+
+  button {
+    aspect-ratio: 1;
+    font-size: 2em;
+    border-radius: 100%;
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+
+  #clipboard:hover span {
+    opacity: 1;
   }
 
   details {
