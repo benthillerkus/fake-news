@@ -6,6 +6,8 @@
   import Publication from "./blog/[content]/Publication.svelte";
   import Article from "./blog/[content]/Article.svelte";
   import EmojiFavicon from "$lib/EmojiFavicon.svelte";
+  import ActionButton from "$lib/ActionButton.svelte";
+  import { goto } from "$app/navigation";
 
   export let data: PageData;
   let config: Config = data as any;
@@ -25,8 +27,6 @@
 </svelte:head>
 
 <main style="--preview-width: 1fr">
-  <h1>Make some <i>fake</i> News</h1>
-
   <form>
     {#each Object.keys(DefaultConfig) as key}
       <label for={key}>
@@ -52,12 +52,25 @@
   <div id="preview">
     <Publication {config} {serialized}><Article {config} /></Publication>
   </div>
-  <label id="clipboard">
-    <span>Copy link to clipboard</span>
-    <button on:click|preventDefault={() => navigator.clipboard.writeText(link)}
-      >📌</button
-    >
-  </label>
+  <div id="actions">
+    <ActionButton tooltip="Visit site" action={() => goto(link)} icon="🌐" />
+    <ActionButton
+      tooltip="Copy link to clipboard"
+      action={() => navigator.clipboard.writeText(link)}
+      icon="📌"
+    />
+    <ActionButton
+      tooltip="Share link"
+      action={() =>
+        navigator.share({
+          url: link,
+          title: config.siteName,
+          text: config.title,
+        })}
+      icon="🗽"
+    />
+  </div>
+  <h1>Make some <i>fake</i> News</h1>
 </main>
 
 <style>
@@ -77,36 +90,12 @@
       "form divider iframe";
   }
 
-  #clipboard {
-    grid-area: title;
-    justify-self: end;
-    align-self: start;
-    translate: -50% 50%;
-  }
-
-  #clipboard span {
-    opacity: 0;
-    background-color: white;
-    border-radius: 3px;
-    padding: 5px;
-  }
-
-  button {
-    aspect-ratio: 1;
-    font-size: 2em;
-    border-radius: 100%;
-  }
-
-  button:hover {
-    cursor: pointer;
-  }
-
-  #clipboard:hover span {
-    opacity: 1;
-  }
-
   details {
     width: 100%;
+  }
+
+  #actions {
+    grid-area: title;
   }
 
   textarea {
@@ -149,5 +138,16 @@
   #preview {
     contain: strict;
     grid-area: iframe;
+  }
+
+  #actions {
+    position: sticky;
+    top: 20px;
+    width: 98%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    gap: 15px;
   }
 </style>
