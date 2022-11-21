@@ -110,7 +110,7 @@
     width: 100%;
     gap: 20px;
     padding: 20px;
-    background-image: url(noise.svg);
+    background-image: url(/noise.svg);
 
     grid-template-areas:
       "title title title"
