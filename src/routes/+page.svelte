@@ -96,6 +96,11 @@
     margin: 20px 0;
   }
 
+  label {
+    font-family: var(--mono);
+    margin-block: 5px;
+  }
+
   input {
     width: 100%;
   }
