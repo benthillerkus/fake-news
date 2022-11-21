@@ -18,7 +18,10 @@ export function deserialize(str: string) {
   return deserialized;
 }
 
-export function tryDeserialize(str: string) {
+export function tryDeserialize(str: string | null) {
+  if (str === null) {
+    return {};
+  }
   try {
     return deserialize(str);
   } catch (e) {

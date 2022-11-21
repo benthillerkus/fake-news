@@ -1,6 +1,6 @@
 <script lang="ts">
   import "$lib/reset.css";
-  import { deserialize, serialize } from "$lib/deser";
+  import { serialize } from "$lib/deser";
   import { DefaultConfig, type Config } from "$lib/types";
   import type { PageData } from "./$types";
   import Publication from "./blog/[content]/Publication.svelte";
@@ -8,8 +8,7 @@
   import EmojiFavicon from "$lib/EmojiFavicon.svelte";
 
   export let data: PageData;
-
-  let config: Config = DefaultConfig;
+  let config: Config = data as any;
 
   $: serialized = serialize(config);
   $: link = `${data.url.origin}/blog/${serialized}`;
@@ -54,7 +53,7 @@
     </details>
   </form>
   <div class="iframe">
-    <Publication {config}><Article {config} /></Publication>
+    <Publication {config} {serialized}><Article {config} /></Publication>
   </div>
 </main>
 

@@ -8,11 +8,9 @@
   import Publication from "./Publication.svelte";
 
   export let data: PageData;
-  let config: Config = data as any;
-
-  const oembed = `${data.url.origin}/oembed?url=${
-    data.url.origin
-  }/blog/${serialize(data)}&format=json`;
+  const config: Config = data as any;
+  const serialized = serialize(data);
+  const oembed = `${data.url.origin}/oembed?url=${data.url.origin}/blog/${serialized}&format=json`;
 </script>
 
 <EmojiFavicon icon={data.favicon} />
@@ -42,6 +40,6 @@
   <meta name="twitter:image:alt" content={data.imageAlt} />
 </svelte:head>
 
-<Publication {config}>
+<Publication {config} {serialized}>
   <Article {config} />
 </Publication>

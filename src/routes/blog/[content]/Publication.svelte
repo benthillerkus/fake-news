@@ -3,13 +3,14 @@
   import type { Config } from "$lib/types";
 
   export let config: Config;
+  export let serialized: string;
 </script>
 
 <header style="--theme-color: {config.themeColor}">
   <h1>{config.siteName}</h1>
   <span>{config.siteDescription}</span>
   <nav>
-    <a href="/">Home</a>
+    <a href={`/?config=${serialized}`}>Home</a>
     <a href="/blog">Blog</a>
     <a href="/about">About</a>
   </nav>
