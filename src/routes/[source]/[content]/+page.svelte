@@ -23,9 +23,9 @@
     href={oembed}
     title="oEmbed Metadata (JSON)"
   />
-  <meta property="og:site_name" content={config.siteName} />
-  <meta name="theme-color" content="orange" />
+  <meta name="theme-color" content={config.themeColor} />
   <meta name="description" content={config.description} />
+  <meta property="og:site_name" content={config.siteName} />
   <meta property="og:title" content={config.title} />
   <meta property="og:description" content={config.description} />
   <meta property="og:image" content={config.image} />
