@@ -2,11 +2,11 @@
 
 ## Todos
 
-- Editor
-- Random generation for certain fields (generic tech blog name...)
-- Different Styles
-- Share buttons
-- Vercel OG
+- [x] Editor
+- [ ] Random generation for certain fields (generic tech blog name...)
+- [ ] Different Styles
+- [ ] Share buttons
+- [ ] Vercel OG
 
 ## Developing
 
