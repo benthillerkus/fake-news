@@ -3,8 +3,12 @@
 ## Todos
 
 - [x] Editor
+  - [ ] Improve mobile experience
+- [ ] Add some sort of permanent storage mechanism
 - [ ] Random generation for certain fields (generic tech blog name...)
 - [ ] Different Styles
+  - [ ] Add custom logos
+  - [ ] Dark mode
 - [x] Share buttons
 - [ ] Vercel OG
 
