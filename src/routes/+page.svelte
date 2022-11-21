@@ -27,6 +27,7 @@
 </svelte:head>
 
 <main style="--preview-width: 1fr">
+  <h1><a href={data.url.origin}>Make some <i>fake</i> News</a></h1>
   <form>
     {#each Object.keys(DefaultConfig) as key}
       <label for={key}>
@@ -97,7 +98,6 @@
       icon="🚬"
     />
   </div>
-  <h1>Make some <i>fake</i> News</h1>
 </main>
 
 <style>
@@ -105,7 +105,7 @@
     font-family: var(--sans-serif);
     display: grid;
     grid-template-columns: 1fr 1px var(--preview-width);
-    grid-template-rows: 50px 1fr;
+    grid-template-rows: 70px 1fr;
     height: 100%;
     width: 100%;
     gap: 20px;
@@ -114,15 +114,11 @@
 
     grid-template-areas:
       "title title title"
-      "form divider iframe";
+      "form divider preview";
   }
 
   details {
     width: 100%;
-  }
-
-  #actions {
-    grid-area: title;
   }
 
   textarea {
@@ -136,6 +132,11 @@
     align-self: center;
     font-family: var(--mono);
     font-size: 3em;
+  }
+
+  h1 a {
+    text-decoration: none;
+    color: black;
   }
 
   hr {
@@ -164,18 +165,21 @@
 
   #preview {
     contain: strict;
-    grid-area: iframe;
+    grid-area: preview;
+    contain: strict;
   }
 
   #actions {
+    grid-area: title;
     user-select: none;
     position: sticky;
     top: 20px;
-    width: 98%;
+    width: fit-content;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: end;
+    justify-self: end;
     gap: 15px;
+    contain: layout;
   }
 </style>
