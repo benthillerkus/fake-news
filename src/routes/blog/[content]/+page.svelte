@@ -1,7 +1,6 @@
 <script lang="ts">
   import type { PageData } from "./$types";
   import "$lib/reset.css";
-  import Time from "$lib/Time.svelte";
   import { serialize } from "$lib/deser";
   import Article from "./Article.svelte";
   import type { ArticleConfig } from "$lib/types";
