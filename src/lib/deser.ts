@@ -12,7 +12,7 @@ export function serialize(obj: object) {
 
 export function deserialize(str: string) {
   const base64 = decodeURIComponent(str);
-  const compressed = Buffer.from(base64, "base64");
+  const compressed = Uint8Array.from(atob(base64), c => c.charCodeAt(0));
   const inflated = pako.inflate(compressed, { to: "string" });
   const deserialized = JSON.parse(inflated);
   return deserialized;
