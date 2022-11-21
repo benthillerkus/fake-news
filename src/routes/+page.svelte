@@ -52,6 +52,12 @@
             <option value="serif">Serif</option>
             <option value="mono">Mono</option>
           </select>
+        {:else if key == "content"}
+          <textarea
+            name={key}
+            bind:value={config[key]}
+            placeholder={DefaultConfig[key]}
+          />
         {:else}
           <input
             type="text"

@@ -14,24 +14,29 @@
   <header>
     <img alt={config.imageAlt} src={config.image} />
     <h1 style="font-family: var(--{config.titleFont})">{config.title}</h1>
+    <p>{config.description}</p>
     <span
-      >Published on <Time time={config.publishedDate} />
+      >Published <Time time={config.publishedDate} />
       by {config.author}</span
     >
   </header>
   <hr />
   <main>
-    <p>
-      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-      eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-      voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-      clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-      amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-      nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
-      diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-      Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
-      sit amet.
-    </p>
+    {#if config.content}
+      <p>{config.content}</p>
+    {:else}
+      <p>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+        amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+        nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+        rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+        ipsum dolor sit amet.
+      </p>
+    {/if}
   </main>
 </article>
 
@@ -43,6 +48,11 @@
   }
 
   h1 {
+    margin-block: 10px;
+  }
+
+  h1 + p {
+    font-size: 1.35em;
     margin-block: 10px;
   }
 

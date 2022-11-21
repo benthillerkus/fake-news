@@ -10,10 +10,11 @@ export const DefaultConfig: Record<string, string> = {
   navFont: "mono",
   bodyFont: "serif",
   titleFont: "sans-serif",
+  image: "https://images.unsplash.com/photo-1609741200064-2ef87d5eb200?q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max",
+  imageAlt: "A clown amongst stormtroopers",
   title: "I was bullied in kindergarten. Now I teach pre-schoolers LISP",
   description: "Trauma is cyclical",
+  content: "",
   author: "Paul G.",
-  image: "https://images.unsplash.com/photo-1609741200064-2ef87d5eb200?q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max",
-  imageAlt: "A clown",
   publishedDate: "2021-04-01" as ISODate,
 }
