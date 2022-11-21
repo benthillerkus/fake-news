@@ -10,8 +10,9 @@
     } else {
       date = time;
     }
-    date = new Date(time);
-    iso = date.toISOString();
+    try {
+      iso = date.toISOString();
+    } catch (e) {}
   }
 </script>
 
