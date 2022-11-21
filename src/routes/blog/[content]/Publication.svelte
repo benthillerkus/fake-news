@@ -9,12 +9,16 @@
 <header
   style="--theme-color: {config.themeColor}; font-family: var(--{config.navFont})"
 >
-  <h1>{config.siteName}</h1>
-  <span>{config.siteDescription}</span>
+  {#if config.siteName}
+    <h1>{config.siteName}</h1>
+  {/if}
+  {#if config.siteDescription}
+    <span>{config.siteDescription}</span>
+  {/if}
   <nav>
-    <a href={`/?config=${serialized}`}>Home</a>
-    <a href="/blog">Blog</a>
-    <a href="/about">About</a>
+    <a href={`/?config=${serialized}`}>Edit</a>
+    <a href="/#">Blog</a>
+    <a href="/#">About</a>
   </nav>
 </header>
 <main style="--background-color: {config.backgroundColor}">
@@ -28,12 +32,29 @@
     top: 0;
     position: sticky;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
+  }
+
+  @media (max-width: 1000px) {
+    header {
+      flex-direction: column-reverse;
+      gap: 5px;
+      align-items: center;
+    }
+
+    span {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      text-align: center;
+    }
   }
 
   header,
   footer {
-    background-color: var(--theme-color);
+    background: var(--theme-color);
     color: black;
   }
 
@@ -52,7 +73,7 @@
   main {
     padding-block: 15px;
     padding-inline: 15px;
-    background-color: var(--background-color);
+    background: var(--background-color);
     display: flex;
     flex-direction: column;
     align-items: center;
