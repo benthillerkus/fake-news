@@ -3,8 +3,8 @@
   import { serialize } from "$lib/deser";
   import { DefaultConfig, type Config, type ISODate } from "$lib/types";
   import type { PageData } from "./$types";
-  import Publication from "./blog/[content]/Publication.svelte";
-  import Article from "./blog/[content]/Article.svelte";
+  import Publication from "./[source]/[content]/Publication.svelte";
+  import Article from "./[source]/[content]/Article.svelte";
   import EmojiFavicon from "$lib/EmojiFavicon.svelte";
   import ActionButton from "$lib/ActionButton.svelte";
   import { goto } from "$app/navigation";
