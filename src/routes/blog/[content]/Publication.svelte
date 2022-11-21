@@ -6,7 +6,9 @@
   export let serialized: string;
 </script>
 
-<header style="--theme-color: {config.themeColor}">
+<header
+  style="--theme-color: {config.themeColor}; font-family: var(--{config.navFont})"
+>
   <h1>{config.siteName}</h1>
   <span>{config.siteDescription}</span>
   <nav>
@@ -32,7 +34,6 @@
   header,
   footer {
     background-color: var(--theme-color);
-    font-family: var(--mono);
     color: black;
   }
 

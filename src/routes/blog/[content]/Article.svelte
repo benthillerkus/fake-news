@@ -6,10 +6,14 @@
   export let config: Config;
 </script>
 
-<article itemscope itemtype="https://schema.org/BlogPosting">
+<article
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+  style="font-family:var(--{config.bodyFont})"
+>
   <header>
     <img alt={config.imageAlt} src={config.image} />
-    <h1>{config.title}</h1>
+    <h1 style="font-family: var(--{config.titleFont})">{config.title}</h1>
     <span
       >Published on <Time time={config.publishedAt} />
       by {config.author}</span
@@ -39,7 +43,6 @@
   }
 
   h1 {
-    font-family: var(--sans-serif);
     margin-block: 10px;
   }
 
