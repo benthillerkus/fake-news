@@ -35,6 +35,12 @@
           <input type="date" name={key} bind:value={config[key]} />
         {:else if key.endsWith("Color")}
           <input type="color" name={key} bind:value={config[key]} />
+          <input
+            type="text"
+            name={key}
+            bind:value={config[key]}
+            placeholder={DefaultConfig[key]}
+          />
         {:else if key.endsWith("Font")}
           <select
             name={key}
