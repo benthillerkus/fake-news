@@ -24,8 +24,8 @@
   />
 </svelte:head>
 
-<main>
-  <h1>Make some Fake News</h1>
+<main style="--preview-width: 1fr">
+  <h1>Make some <i>fake</i> News</h1>
 
   <form>
     {#each Object.keys(DefaultConfig) as key}
@@ -52,24 +52,27 @@
       <textarea>{serialized}</textarea>
     </details>
   </form>
-  <div class="iframe">
+  <div id="divider" />
+  <div id="preview">
     <Publication {config} {serialized}><Article {config} /></Publication>
   </div>
 </main>
 
 <style>
   main {
+    font-family: var(--sans-serif);
     display: grid;
-    grid-template-columns: 0.5fr 1fr 1fr;
+    grid-template-columns: 1fr 1px var(--preview-width);
     grid-template-rows: 50px 1fr;
     height: 100%;
     width: 100%;
     gap: 20px;
     padding: 20px;
+    background-image: url(noise.svg);
 
     grid-template-areas:
       "title title title"
-      "form form iframe";
+      "form divider iframe";
   }
 
   details {
@@ -84,7 +87,9 @@
   h1 {
     grid-area: title;
     justify-self: center;
-    font-family: var(--serif);
+    align-self: center;
+    font-family: var(--mono);
+    font-size: 3em;
   }
 
   hr {
@@ -101,7 +106,12 @@
     flex-direction: column;
   }
 
-  .iframe {
+  #divider {
+    grid-area: divider;
+    background: black;
+  }
+
+  #preview {
     contain: strict;
     grid-area: iframe;
   }
