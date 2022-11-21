@@ -46,6 +46,9 @@
 
     <details>
       <textarea>{serialized}</textarea>
+      <a href="https://bugdays.com/gzip-base64" rel="external"
+        >Online Decoder + Encoder</a
+      >
     </details>
   </form>
   <div id="divider" />
