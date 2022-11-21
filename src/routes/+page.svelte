@@ -1,28 +1,18 @@
 <script lang="ts">
   import "$lib/reset.css";
-  import { serialize } from "$lib/deser";
-  import {
-    DefaultArticleConfig,
-    DefaultPublicationConfig,
-    type ArticleConfig,
-    type PublicationConfig,
-  } from "$lib/types";
+  import { deserialize, serialize } from "$lib/deser";
+  import { DefaultConfig, type Config } from "$lib/types";
   import type { PageData } from "./$types";
   import Publication from "./blog/[content]/Publication.svelte";
   import Article from "./blog/[content]/Article.svelte";
   import EmojiFavicon from "$lib/EmojiFavicon.svelte";
-  import { goto } from "$app/navigation";
 
   export let data: PageData;
 
-  let publication: PublicationConfig = DefaultPublicationConfig;
-  let article: ArticleConfig = DefaultArticleConfig;
+  let config: Config = DefaultConfig;
 
-  $: config = serialize({
-    ...publication,
-    ...article,
-  });
-  $: link = `${data.url.origin}/blog/${config}`;
+  $: serialized = serialize(config);
+  $: link = `${data.url.origin}/blog/${serialized}`;
 </script>
 
 <EmojiFavicon icon="📣" />
@@ -39,26 +29,14 @@
   <h1>Make some Fake News</h1>
 
   <form>
-    {#each Object.keys(DefaultPublicationConfig) as key}
+    {#each Object.keys(DefaultConfig) as key}
       <label for={key}>
         {key}
         <input
           type="text"
           name={key}
-          bind:value={publication[key]}
-          placeholder={DefaultPublicationConfig[key]}
-        />
-      </label>
-    {/each}
-    <hr />
-    {#each Object.keys(DefaultArticleConfig) as key}
-      <label for={key}>
-        {key}
-        <input
-          type="text"
-          name={key}
-          bind:value={article[key]}
-          placeholder={DefaultArticleConfig[key]}
+          bind:value={config[key]}
+          placeholder={DefaultConfig[key]}
         />
       </label>
     {/each}
@@ -68,13 +46,15 @@
         on:click|preventDefault={() => navigator.clipboard.writeText(link)}
         >Copy Link</button
       >
-      <a href={link}>Visit {publication.siteName}</a>
+      <a href={link}>Visit {config.siteName}</a>
     </div>
 
-    <details><textarea>{config}</textarea></details>
+    <details>
+      <textarea>{serialized}</textarea>
+    </details>
   </form>
   <div class="iframe">
-    <Publication config={publication}><Article config={article} /></Publication>
+    <Publication {config}><Article {config} /></Publication>
   </div>
 </main>
 

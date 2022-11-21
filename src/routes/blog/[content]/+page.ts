@@ -1,5 +1,5 @@
-import { deserialize, tryDeserialize } from "$lib/deser";
-import { DefaultArticleConfig, type ArticleConfig } from "$lib/types";
+import { tryDeserialize } from "$lib/deser";
+import { DefaultConfig, type Config } from "$lib/types";
 import type { PageLoad } from "./$types"
 export const csr = false;
 
@@ -11,7 +11,7 @@ export const load: PageLoad = async ({ params, url }) => {
   }
 
   return {
-    ...DefaultArticleConfig,
+    ...DefaultConfig,
     ...tryDeserialize(params.content),
     ...queryParams,
     url

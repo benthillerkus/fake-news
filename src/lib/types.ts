@@ -1,16 +1,12 @@
-export type PublicationConfig = typeof DefaultPublicationConfig
-export type ArticleConfig = typeof DefaultArticleConfig
+export type Config = typeof DefaultConfig
 export type ISODate = `${number}-${number}-${number}`
 
-export const DefaultPublicationConfig: Record<string, string> = {
+export const DefaultConfig: Record<string, string> = {
   siteName: "Jumping Hoops",
   siteDescription: "A blog on basketball and neoliberalism",
   favicon: "🏀",
   themeColor: "orange",
   backgroundColor: "antiquewhite",
-}
-
-export const DefaultArticleConfig: Record<string, string> = {
   title: "I was bullied in kindergarten. Now I teach pre-schoolers LISP",
   description: "Trauma is cyclical",
   author: "Paul G.",

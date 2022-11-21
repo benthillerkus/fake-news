@@ -3,15 +3,19 @@
   import "$lib/reset.css";
   import { serialize } from "$lib/deser";
   import Article from "./Article.svelte";
-  import type { ArticleConfig } from "$lib/types";
+  import type { Config } from "$lib/types";
+  import EmojiFavicon from "$lib/EmojiFavicon.svelte";
+  import Publication from "./Publication.svelte";
 
   export let data: PageData;
-  let config: ArticleConfig = data as any;
+  let config: Config = data as any;
 
   const oembed = `${data.url.origin}/oembed?url=${
     data.url.origin
   }/blog/${serialize(data)}&format=json`;
 </script>
+
+<EmojiFavicon icon={data.favicon} />
 
 <svelte:head>
   <title>{data.title}</title>
@@ -21,6 +25,8 @@
     href={oembed}
     title="oEmbed Metadata (JSON)"
   />
+  <meta property="og:site_name" content={data.siteName} />
+  <meta name="theme-color" content="orange" />
   <meta name="description" content={data.description} />
   <meta property="og:title" content={data.title} />
   <meta property="og:description" content={data.description} />
@@ -36,4 +42,6 @@
   <meta name="twitter:image:alt" content={data.imageAlt} />
 </svelte:head>
 
-<Article {config} />
+<Publication {config}>
+  <Article {config} />
+</Publication>

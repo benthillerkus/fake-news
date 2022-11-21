@@ -1,8 +1,8 @@
 <script lang="ts">
   import "$lib/reset.css";
-  import type { PublicationConfig } from "$lib/types";
+  import type { Config } from "$lib/types";
 
-  export let config: PublicationConfig;
+  export let config: Config;
 </script>
 
 <header style="--theme-color: {config.themeColor}">

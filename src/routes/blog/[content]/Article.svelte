@@ -1,9 +1,9 @@
 <script lang="ts">
   import "$lib/reset.css";
   import Time from "$lib/Time.svelte";
-  import type { ArticleConfig } from "$lib/types";
+  import type { Config } from "$lib/types";
 
-  export let config: ArticleConfig;
+  export let config: Config;
 </script>
 
 <article itemscope itemtype="https://schema.org/BlogPosting">
