@@ -5,8 +5,8 @@ export const DefaultConfig: Record<string, string> = {
   siteName: "Jumping Hoops",
   siteDescription: "A blog on basketball and neoliberalism",
   favicon: "🏀",
-  themeColor: "orange",
-  backgroundColor: "antiquewhite",
+  themeColor: "#FE6262",
+  backgroundColor: "#D6D6D6",
   navFont: "mono",
   bodyFont: "serif",
   titleFont: "sans-serif",
@@ -15,5 +15,5 @@ export const DefaultConfig: Record<string, string> = {
   author: "Paul G.",
   image: "https://images.unsplash.com/photo-1609741200064-2ef87d5eb200?q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max",
   imageAlt: "A clown",
-  publishedAt: "2021-04-01" as ISODate,
+  publishedDate: "2021-04-01" as ISODate,
 }

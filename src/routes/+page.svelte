@@ -1,7 +1,7 @@
 <script lang="ts">
   import "$lib/reset.css";
   import { serialize } from "$lib/deser";
-  import { DefaultConfig, type Config } from "$lib/types";
+  import { DefaultConfig, type Config, type ISODate } from "$lib/types";
   import type { PageData } from "./$types";
   import Publication from "./blog/[content]/Publication.svelte";
   import Article from "./blog/[content]/Article.svelte";
@@ -31,20 +31,33 @@
     {#each Object.keys(DefaultConfig) as key}
       <label for={key}>
         {key}
-        <input
-          type="text"
-          name={key}
-          bind:value={config[key]}
-          placeholder={DefaultConfig[key]}
-        />
+        {#if key.endsWith("Date")}
+          <input type="date" name={key} bind:value={config[key]} />
+        {:else if key.endsWith("Color")}
+          <input type="color" name={key} bind:value={config[key]} />
+        {:else if key.endsWith("Font")}
+          <select
+            name={key}
+            bind:value={config[key]}
+            placeholder={DefaultConfig[key]}
+          >
+            <option value="sans-serif">Sans-Serif</option>
+            <option value="serif">Serif</option>
+            <option value="mono">Mono</option>
+          </select>
+        {:else}
+          <input
+            type="text"
+            name={key}
+            bind:value={config[key]}
+            placeholder={DefaultConfig[key]}
+          />
+        {/if}
       </label>
     {/each}
     <hr />
-    <div>
-      <a href={link}>Visit {config.siteName}</a>
-    </div>
-
     <details>
+      <span>{serialized.length} of 1024 Characters used</span>
       <textarea>{serialized}</textarea>
       <a href="https://bugdays.com/gzip-base64" rel="external"
         >Online Decoder + Encoder</a
@@ -71,6 +84,11 @@
           text: config.title,
         })}
       icon="🗽"
+    />
+    <ActionButton
+      tooltip="Reset"
+      action={() => (config = DefaultConfig)}
+      icon="🚬"
     />
   </div>
   <h1>Make some <i>fake</i> News</h1>
@@ -144,6 +162,7 @@
   }
 
   #actions {
+    user-select: none;
     position: sticky;
     top: 20px;
     width: 98%;

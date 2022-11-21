@@ -32,7 +32,7 @@
   <meta property="og:image:alt" content={data.imageAlt} />
   <meta property="og:type" content="article" />
   <meta property="og:article:author" content={data.author} />
-  <meta property="og:article:published_time" content={data.publishedAt} />
+  <meta property="og:article:published_time" content={data.publishedDate} />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={data.title} />
   <meta name="twitter:description" content={data.description} />

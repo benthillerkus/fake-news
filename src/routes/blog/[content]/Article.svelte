@@ -15,7 +15,7 @@
     <img alt={config.imageAlt} src={config.image} />
     <h1 style="font-family: var(--{config.titleFont})">{config.title}</h1>
     <span
-      >Published on <Time time={config.publishedAt} />
+      >Published on <Time time={config.publishedDate} />
       by {config.author}</span
     >
   </header>
