@@ -63,15 +63,18 @@
       </label>
     {/each}
     <hr />
-    <button on:click|preventDefault={() => goto(link)}>
+    <div>
+      <button
+        on:click|preventDefault={() => navigator.clipboard.writeText(link)}
+        >Copy Link</button
+      >
       <a href={link}>Visit {publication.siteName}</a>
-    </button>
+    </div>
 
     <details><textarea>{config}</textarea></details>
   </form>
   <div class="iframe">
     <Publication config={publication}><Article config={article} /></Publication>
-    <div />
   </div>
 </main>
 
