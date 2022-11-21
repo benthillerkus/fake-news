@@ -5,8 +5,10 @@ import type { PageLoad } from "./$types"
 export const load: PageLoad = async ({
   url }) => {
   return {
-    ...DefaultConfig,
-    ...tryDeserialize(url.searchParams.get("config")),
+    config: {
+      ...DefaultConfig,
+      ...tryDeserialize(url.searchParams.get("config")),
+    },
     url
   }
 };

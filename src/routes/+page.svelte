@@ -10,7 +10,7 @@
   import { goto } from "$app/navigation";
 
   export let data: PageData;
-  let config: Config = data as any;
+  let config: Config = data.config as any;
 
   $: serialized = serialize(config);
   $: link = `${data.url.origin}/blog/${serialized}`;

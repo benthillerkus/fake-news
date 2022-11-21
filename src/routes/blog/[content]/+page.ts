@@ -11,9 +11,11 @@ export const load: PageLoad = async ({ params, url }) => {
   }
 
   return {
-    ...DefaultConfig,
-    ...tryDeserialize(params.content),
-    ...queryParams,
+    config: {
+      ...DefaultConfig,
+      ...tryDeserialize(params.content),
+      ...queryParams,
+    },
     url
   }
 }
