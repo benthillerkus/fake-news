@@ -11,7 +11,7 @@ export const DefaultConfig: Record<string, string> = {
   navFont: "Handwriting",
   titleFont: "Serif",
   bodyFont: "Mono",
-  imageUrl: "https://images.unsplash.com/photo-1590396494304-bb9b9d248ff3?fit=crop&ar=1:1.1&crop=entropy&auto=compress,format",
+  imageUrl: "https://images.unsplash.com/photo-1590396494304-bb9b9d248ff3?fit=crop&h=500&ar=1:1.1&crop=entropy&auto=compress,format",
   imageAlt: "A horse smiling at the camera. The picture has a warm tone.",
   title: "I have hacked my sister's webserver",
   description: "Now I can post whatever I want!",

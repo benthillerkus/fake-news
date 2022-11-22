@@ -47,8 +47,8 @@
   img {
     padding: 10px;
     background-color: white;
+    margin: auto;
     margin-block: 30px;
-    object-fit: cover;
   }
 
   h1 {
