@@ -37,11 +37,8 @@
         {#if key.endsWith("Date")}
           <input type="date" bind:value={config[key]} />
         {:else if key.endsWith("Color")}
+          <input type="color" bind:value={config[key]} />
           <input
-            type="color"
-            bind:value={config[key]}
-            />
-            <input
             type="text"
             bind:value={config[key]}
             placeholder={DefaultConfig[key]}
@@ -59,15 +56,9 @@
             {/each}
           </select>
         {:else if key == "content"}
-          <textarea
-            bind:value={config[key]}
-            placeholder={DefaultConfig[key]}
-          />
+          <textarea bind:value={config[key]} placeholder={DefaultConfig[key]} />
         {:else if key == "style"}
-          <select
-            bind:value={config[key]}
-            placeholder={DefaultConfig[key]}
-          >
+          <select bind:value={config[key]} placeholder={DefaultConfig[key]}>
             <option value="blog">Blog</option>
             <option value="newspaper">Newspaper</option>
           </select>
@@ -114,7 +105,10 @@
     />
     <ActionButton
       tooltip="Reset"
-      action={() => (config = DefaultConfig)}
+      action={() => {
+        config = DefaultConfig;
+        window.history.pushState({}, document.title, data.url.origin);
+      }}
       icon="🚬"
     />
   </div>

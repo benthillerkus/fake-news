@@ -14,7 +14,7 @@
 - [x] Share buttons
   - [ ] Fix link vs button behaviour
   - [ ] Fix reset being shitty
-   - [ ] Conflicts with SSR bc of the URL param thing
+   - [x] Push new history after reset to align content with URL
    - [ ] Can't reset colors to values on allowed in CSS
   - [ ] Add share buttons to pages
 - [ ] Vercel OG
