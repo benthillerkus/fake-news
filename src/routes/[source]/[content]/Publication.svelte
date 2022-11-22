@@ -31,7 +31,7 @@
     top: 0;
     position: sticky;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: flex-end;
     font-family: var(--nav-font);
   }

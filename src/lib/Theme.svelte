@@ -5,9 +5,8 @@
 
   let node: HTMLDivElement;
   $: styleApiAvailable = node && node.style;
-  let style: string = "";
+  let style: string = "display: contents;";
   $: {
-    setProperty("display", "contents");
     for (const [key, value] of Object.entries(config)) {
       const kebab =
         "--" + key.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
