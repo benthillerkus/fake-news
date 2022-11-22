@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "Sans Serif";
+  src: local(-apple-system), local(BlinkMacSystemFont), local(avenir next), local(avenir), local(segoe ui), local(helvetica neue), local(helvetica), local(Cantarell), local(Ubuntu), local(roboto), local(noto), local(arial), local(sans-serif);
+}
+
+@font-face {
+  font-family: "Serif";
+  src: local(Eb Garamond), local(Bitter), local(Iowan Old Style), local(Apple Garamond), local(Baskerville), local(Times New Roman), local(Droid Serif), local(Times), local(Source Serif Pro), local(serif), local(Apple Color Emoji), local(Segoe UI Emoji), local(Segoe UI Symbol);
+}
+
+@font-face {
+  font-family: "Mono";
+  src: local(Menlo), local(Consolas), local(Monaco), local(Liberation Mono), local(Lucida Console), local(monospace);
+}
+
+@font-face {
+  font-family: "Handwriting";
+  src: local("Comic Sans MS"), local("Apple Chancery"), local("Brush Script MT"), local("Comic Neue"), local(cursive);
+}

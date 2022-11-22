@@ -1,11 +1,13 @@
 <script lang="ts">
   import type { PageData } from "./$types";
-  import "$lib/reset.css";
-  import { serialize } from "$lib/deser";
-  import Article from "./Article.svelte";
   import type { Config } from "$lib/types";
+  import { serialize } from "$lib/deser";
+  import "$lib/reset.css";
   import EmojiFavicon from "$lib/EmojiFavicon.svelte";
+  import Theme from "$lib/Theme.svelte";
+  import Article from "./Article.svelte";
   import Publication from "./Publication.svelte";
+    import ActionButton from "$lib/ActionButton.svelte";
 
   export let data: PageData;
   const config: Config = data.config as any;
@@ -40,6 +42,8 @@
   <meta name="twitter:image:alt" content={config.imageAlt} />
 </svelte:head>
 
-<Publication {config} {serialized}>
-  <Article {config} />
-</Publication>
+<Theme {config}>
+  <Publication {config} {serialized}>
+    <Article {config} />
+  </Publication>
+</Theme>

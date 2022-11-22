@@ -2,19 +2,22 @@ export type Config = typeof DefaultConfig
 export type ISODate = `${number}-${number}-${number}`
 
 export const DefaultConfig: Record<string, string> = {
-  siteName: "Jumping Hoops",
-  siteDescription: "A blog on basketball and neoliberalism",
-  favicon: "🏀",
-  themeColor: "#FE6262",
-  backgroundColor: "#D6D6D6",
-  navFont: "mono",
-  bodyFont: "serif",
-  titleFont: "sans-serif",
-  image: "https://images.unsplash.com/photo-1609741200064-2ef87d5eb200?q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max",
-  imageAlt: "A clown amongst stormtroopers",
-  title: "I was bullied in kindergarten. Now I teach pre-schoolers LISP",
-  description: "Trauma is cyclical",
+  style: "blog" as "blog" | "newspaper",
+  siteName: "I love Horses!",
+  siteDescription: "🐎 boys not allowed!!",
+  favicon: "🌸",
+  themeColor: "pink",
+  backgroundColor: "url('https://images.unsplash.com/photo-1601662528567-526cd06f6582?auto=format,compress&fit=crop') repeat repeat",
+  navFont: "Handwriting",
+  titleFont: "Serif",
+  bodyFont: "Mono",
+  imageUrl: "https://images.unsplash.com/photo-1590396494304-bb9b9d248ff3?fit=crop&ar=1:1.1&crop=entropy&auto=compress,format",
+  imageAlt: "A horse smiling at the camera. The picture has a warm tone.",
+  title: "I have hacked my sister's webserver",
+  description: "Now I can post whatever I want!",
   content: "",
   author: "Paul G.",
-  publishedDate: "2021-04-01" as ISODate,
+  publishedDate: "2012-06-13" as ISODate,
 }
+
+export const Fonts = ["Serif", "Sans Serif", "Mono", "Handwriting"]

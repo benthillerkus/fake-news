@@ -1,5 +1,6 @@
 <script lang="ts">
   export let time: string | Date;
+  export let itemprop: string | null;
 
   let date: Date;
   let iso: string;
@@ -16,4 +17,4 @@
   }
 </script>
 
-<time datetime={iso}>{date.toLocaleDateString()}</time>
+<time {itemprop} content={iso} datetime={iso}>{date.toLocaleDateString()}</time>

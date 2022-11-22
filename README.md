@@ -9,7 +9,14 @@
 - [ ] Different Styles
   - [ ] Add custom logos
   - [ ] Dark mode
+- [ ] Fix too short pages
+- [x] Fix title spacing 
 - [x] Share buttons
+  - [ ] Fix link vs button behaviour
+  - [ ] Fix reset being shitty
+   - [ ] Conflicts with SSR bc of the URL param thing
+   - [ ] Can't reset colors to values on allowed in CSS
+  - [ ] Add share buttons to pages
 - [ ] Vercel OG
 
 ## Developing

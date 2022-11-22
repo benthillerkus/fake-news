@@ -1,14 +1,13 @@
 <script lang="ts">
   import "$lib/reset.css";
+  import "$lib/systemfonts.css";
   import type { Config } from "$lib/types";
 
   export let config: Config;
   export let serialized: string;
 </script>
 
-<header
-  style="--theme-color: {config.themeColor}; font-family: var(--{config.navFont})"
->
+<header>
   {#if config.siteName}
     <h1>{config.siteName}</h1>
   {/if}
@@ -21,10 +20,10 @@
     <a href="/#">About</a>
   </nav>
 </header>
-<main style="--background-color: {config.backgroundColor}">
+<main>
   <slot />
 </main>
-<footer style="--theme-color: {config.themeColor}" />
+<footer />
 
 <style>
   header {
@@ -32,7 +31,9 @@
     top: 0;
     position: sticky;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    align-items: flex-end;
+    font-family: var(--nav-font);
   }
 
   @media (max-width: 1000px) {

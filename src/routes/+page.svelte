@@ -1,13 +1,15 @@
 <script lang="ts">
   import "$lib/reset.css";
+  import "$lib/systemfonts.css";
   import { serialize } from "$lib/deser";
-  import { DefaultConfig, type Config, type ISODate } from "$lib/types";
+  import { DefaultConfig, Fonts, type Config, type ISODate } from "$lib/types";
   import type { PageData } from "./$types";
   import Publication from "./[source]/[content]/Publication.svelte";
   import Article from "./[source]/[content]/Article.svelte";
   import EmojiFavicon from "$lib/EmojiFavicon.svelte";
   import ActionButton from "$lib/ActionButton.svelte";
   import { goto } from "$app/navigation";
+  import Theme from "$lib/Theme.svelte";
 
   export let data: PageData;
   let config: Config = data.config as any;
@@ -26,42 +28,52 @@
   />
 </svelte:head>
 
-<main style="--preview-width: 1fr">
+<main style:--preview-width="1fr">
   <h1><a href={data.url.origin}>Make some <i>fake</i> News</a></h1>
   <form>
     {#each Object.keys(DefaultConfig) as key}
-      <label for={key}>
-        {key}
+      <label
+        >{key}
         {#if key.endsWith("Date")}
-          <input type="date" name={key} bind:value={config[key]} />
+          <input type="date" bind:value={config[key]} />
         {:else if key.endsWith("Color")}
-          <input type="color" name={key} bind:value={config[key]} />
           <input
+            type="color"
+            bind:value={config[key]}
+            />
+            <input
             type="text"
-            name={key}
             bind:value={config[key]}
             placeholder={DefaultConfig[key]}
           />
         {:else if key.endsWith("Font")}
           <select
-            name={key}
+            type="text"
+            list={key}
             bind:value={config[key]}
             placeholder={DefaultConfig[key]}
           >
-            <option value="sans-serif">Sans-Serif</option>
-            <option value="serif">Serif</option>
-            <option value="mono">Mono</option>
+            {#each Fonts as font}
+              <option selected={font == config[key]} value={font}>{font}</option
+              >
+            {/each}
           </select>
         {:else if key == "content"}
           <textarea
-            name={key}
             bind:value={config[key]}
             placeholder={DefaultConfig[key]}
           />
+        {:else if key == "style"}
+          <select
+            bind:value={config[key]}
+            placeholder={DefaultConfig[key]}
+          >
+            <option value="blog">Blog</option>
+            <option value="newspaper">Newspaper</option>
+          </select>
         {:else}
           <input
             type="text"
-            name={key}
             bind:value={config[key]}
             placeholder={DefaultConfig[key]}
           />
@@ -79,7 +91,9 @@
   </form>
   <div id="divider" />
   <div id="preview">
-    <Publication {config} {serialized}><Article {config} /></Publication>
+    <Theme {config}>
+      <Publication {config} {serialized}><Article {config} /></Publication>
+    </Theme>
   </div>
   <div id="actions">
     <ActionButton tooltip="Visit site" action={() => goto(link)} icon="🌐" />
@@ -108,7 +122,7 @@
 
 <style>
   main {
-    font-family: var(--sans-serif);
+    font-family: "Sans Serif";
     display: grid;
     grid-template-columns: 1fr 1px var(--preview-width);
     grid-template-rows: 70px 1fr;
@@ -136,7 +150,7 @@
     grid-area: title;
     justify-self: center;
     align-self: center;
-    font-family: var(--mono);
+    font-family: Mono;
     font-size: 3em;
   }
 
@@ -150,7 +164,7 @@
   }
 
   label {
-    font-family: var(--mono);
+    font-family: Mono;
     margin-block: 5px;
   }
 

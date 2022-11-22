@@ -1,27 +1,30 @@
 <script lang="ts">
-  import "$lib/reset.css";
-  import Time from "$lib/Time.svelte";
   import type { Config } from "$lib/types";
+  import "$lib/reset.css";
+  import "$lib/systemfonts.css";
+  import Time from "$lib/Time.svelte";
 
   export let config: Config;
 </script>
 
-<article
-  itemscope
-  itemtype="https://schema.org/BlogPosting"
-  style="font-family:var(--{config.bodyFont})"
->
+<article itemscope itemtype="https://schema.org/BlogPosting">
   <header>
-    <img alt={config.imageAlt} src={config.image} />
-    <h1 style="font-family: var(--{config.titleFont})">{config.title}</h1>
-    <p>{config.description}</p>
+    <img
+      itemprop="image"
+      alt={config.imageAlt}
+      src={config.imageUrl ?? config.image}
+    />
+    <h1 itemprop="headline">
+      {config.title}
+    </h1>
+    <p itemprop="abstract">{config.description}</p>
     <span
-      >Published <Time time={config.publishedDate} />
-      by {config.author}</span
+      >Published <Time itemprop="datePublished" time={config.publishedDate} />
+      by <b itemprop="author">{config.author}</b></span
     >
   </header>
   <hr />
-  <main>
+  <main itemprop="articleBody">
     {#if config.content}
       <p>{config.content}</p>
     {:else}
@@ -42,13 +45,15 @@
 
 <style>
   img {
-    padding: 15px;
+    padding: 10px;
     background-color: white;
     margin-block: 30px;
+    object-fit: cover;
   }
 
   h1 {
     margin-block: 10px;
+    font-family: var(--title-font);
   }
 
   h1 + p {
@@ -62,5 +67,6 @@
 
   article {
     max-width: min(768px, 100%);
+    font-family: var(--body-font);
   }
 </style>
