@@ -36,23 +36,6 @@
     font-family: var(--nav-font);
   }
 
-  @media (max-width: 1000px) {
-    header {
-      flex-direction: column-reverse;
-      gap: 5px;
-      align-items: center;
-    }
-
-    span {
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 2.5em;
-      text-align: center;
-    }
-  }
-
   header,
   footer {
     background: var(--theme-color);
@@ -61,6 +44,7 @@
 
   footer {
     height: 20px;
+    margin-top: -20px;
   }
 
   a {
@@ -79,5 +63,27 @@
     flex-direction: column;
     align-items: center;
     overflow-y: auto;
+    min-height: calc(100% - 67px);
+  }
+
+  @media (max-width: 1000px) {
+    header {
+      flex-direction: column-reverse;
+      gap: 5px;
+      align-items: center;
+    }
+
+    span {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      text-align: center;
+    }
+
+    main {
+      min-height: calc(100% - 133px);
+    }
   }
 </style>
