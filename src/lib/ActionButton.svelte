@@ -9,9 +9,21 @@
   <label>
     <span>{tooltip}</span>
     {#if link === ""}
-      <button class="clickme" on:click|preventDefault={action}>{icon}</button>
+      <button class="clickme" on:click|preventDefault={action}>
+        {#if icon.startsWith("http")}
+          <img src={icon} alt="favicon" />
+        {:else}
+          {icon}
+        {/if}
+      </button>
     {:else}
-      <a class="clickme" href={link}>{icon}</a>
+      <a class="clickme" href={link}>
+        {#if icon.startsWith("http")}
+          <img src={icon} alt="favicon" />
+        {:else}
+          {icon}
+        {/if}</a
+      >
     {/if}
   </label>
 </div>
@@ -36,6 +48,14 @@
     transition: ease-out 0.2s;
   }
 
+  img {
+    width: 70%;
+    aspect-ratio: 1;
+    margin-top: 15%;
+    margin-inline: auto;
+    border-radius: 100%;
+  }
+
   .clickme {
     display: inline-block;
     text-decoration: none;
@@ -43,7 +63,6 @@
     background-color: buttonface;
     color: inherit;
     rotate: 45deg;
-    padding-block: 1rem; /* HAHHAHAHAHA for some reason this aligns the text vertically lmao */
     font-size: 2em;
     width: 60px;
     aspect-ratio: 1;
@@ -51,6 +70,10 @@
     border-width: 1px;
     border-style: outset;
     cursor: pointer;
+  }
+
+  .clickme:not(:has(> img)) {
+    padding-block: 1rem; /* HAHHAHAHAHA for some reason this aligns the text vertically lmao */
   }
 
   span:has(+ .clickme:hover) {
