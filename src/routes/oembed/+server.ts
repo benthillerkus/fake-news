@@ -18,6 +18,6 @@ export const GET: RequestHandler = async ({ url }) => {
     cache_age: 86400,
     provider_name: deserialized.siteName,
     provider_url: url.origin,
-    thumbnail_url: deserialized.image,
+    thumbnail_url: deserialized.image ?? deserialized.imageUrl,
   })
 }
