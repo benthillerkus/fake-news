@@ -1,7 +1,8 @@
-import { tryDeserialize } from "$lib/deser";
-import { DefaultConfig, type Config } from "$lib/types";
 import type { PageLoad } from "./$types"
-export const csr = false;
+import { tryDeserialize } from "$lib/deser";
+import { DefaultConfig } from "$lib/types";
+
+export const csr = import.meta.env.DEV;
 
 export const load: PageLoad = async ({ params, url }) => {
   let serialized: string;
