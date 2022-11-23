@@ -12,7 +12,7 @@
 - [ ] Fix too short pages
 - [x] Fix title spacing 
 - [x] Share buttons
-  - [ ] Fix link vs button behaviour
+  - [x] Fix link vs button behaviour
   - [ ] Fix reset being shitty
    - [x] Push new history after reset to align content with URL
    - [ ] Can't reset colors to values on allowed in CSS

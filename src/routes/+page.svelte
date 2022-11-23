@@ -87,7 +87,7 @@
     </Theme>
   </div>
   <div id="actions">
-    <ActionButton tooltip="Visit site" action={() => goto(link)} icon="🌐" />
+    <ActionButton tooltip="Visit site" {link} icon="🌐" />
     <ActionButton
       tooltip="Copy link to clipboard"
       action={() => navigator.clipboard.writeText(link)}
