@@ -12,7 +12,7 @@
     <img
       itemprop="image"
       alt={config.imageAlt}
-      src={config.image ?? config.imageUrl}
+      src={config.imageUrl}
     />
     <h1 itemprop="headline">
       {config.title}
