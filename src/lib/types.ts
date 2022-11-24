@@ -22,4 +22,4 @@ export const DefaultConfig: Record<string, string> = {
 }
 
 export const Fonts = ["Serif", "Sans Serif", "Mono", "Handwriting"]
-export const Themes = ["Blog", "News"]
+export const Themes = ["Blog", "News", "Aggregator"]

@@ -1,4 +1,9 @@
 #publication {
+  /* https://una.im/calculating-color/#/40 */
+  --contrast-threshold: 60%;
+  --background-color-contrast: hsl(0, 0%, calc((var(--background-color-l) - var(--contrast-threshold)) * -100));
+  --theme-color-contrast: hsl(0, 0%, calc((var(--theme-color-l) - var(--contrast-threshold)) * -100));
+
   & #titlebar {
     padding: 15px 35px;
     top: 0;
@@ -12,7 +17,7 @@
   & #titlebar,
   &>footer {
     background: var(--theme-color);
-    color: black;
+    color: var(--theme-color-contrast);
   }
 
   &>footer {
@@ -21,7 +26,7 @@
   }
 
   & #titlebar a {
-    color: black;
+    color: var(--theme-color-contrast);
   }
 
   & #brand {
@@ -77,6 +82,7 @@
 #article {
   max-width: min(768px, 100%);
   font-family: var(--body-font);
+  color: var(--background-color-contrast);
 
   & img {
     padding: 10px;
