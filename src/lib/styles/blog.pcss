@@ -1,0 +1,101 @@
+#publication {
+  & #titlebar {
+    padding: 15px 35px;
+    top: 0;
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-family: var(--nav-font);
+  }
+
+  & #titlebar,
+  &>footer {
+    background: var(--theme-color);
+    color: black;
+  }
+
+  &>footer {
+    height: 20px;
+    margin-top: -20px;
+  }
+
+  & #titlebar a {
+    color: black;
+  }
+
+  & #brand {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+  }
+
+  & #icon {
+    height: 2em;
+    aspect-ratio: 1;
+  }
+
+  & #emoji,
+  & #brand>h1 {
+    font-size: 2em;
+  }
+
+  & #titlebar nav a::before {
+    content: "|";
+  }
+
+  &>main {
+    padding-block: 15px;
+    padding-inline: 15px;
+    padding-block-end: 45px;
+    background: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    min-height: calc(100% - 67px);
+  }
+
+  @media (max-width: 1000px) {
+    & #titlebar {
+      flex-direction: column-reverse;
+      gap: 5px;
+      align-items: center;
+    }
+
+    & #titlebar span {
+      text-align: center;
+    }
+
+    &>main {
+      min-height: calc(100% - 133px);
+    }
+  }
+}
+
+#article {
+  max-width: min(768px, 100%);
+  font-family: var(--body-font);
+
+  & img {
+    padding: 10px;
+    background-color: white;
+    margin: auto;
+    margin-block: 30px;
+  }
+
+  & h1 {
+    margin-block: 10px;
+    font-family: var(--title-font);
+  }
+
+  & h1+p {
+    font-size: 1.35em;
+    margin-block: 10px;
+  }
+
+  & hr {
+    margin-block: 10px;
+  }
+}

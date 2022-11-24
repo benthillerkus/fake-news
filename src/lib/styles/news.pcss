@@ -1,0 +1,128 @@
+#publication {
+  width: 100%;
+  color: var(--theme-color);
+  background: var(--background-color);
+
+  & #titlebar {
+    padding: 4px 20px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: var(--nav-font);
+    border-bottom: 0.5px solid rgb(0, 0, 0, 0.2);
+    background: rgb(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    position: sticky;
+    top: 0px;
+
+    & span {
+      order: 3;
+
+      &::before {
+        content: "☰";
+        margin-right: 10px;
+        cursor: pointer;
+      }
+    }
+
+    & nav {
+      position: relative;
+      left: -94%;
+      top: 80px;
+      rotate: 90deg;
+      order: 10;
+      display: flex;
+
+      & a {
+        opacity: 0.1;
+        text-decoration: none;
+        color: black;
+        rotate: -90deg;
+      }
+
+      & a:hover {
+        opacity: 1;
+      }
+    }
+
+
+    & #brand {
+      order: 5;
+      font-size: 1em;
+      display: flex;
+      gap: 5px;
+      align-items: center;
+
+      & #emoji,
+      & h1 {
+        font-size: 1.3em;
+      }
+    }
+  }
+
+  & footer {
+    height: 50px;
+  }
+}
+
+#article {
+  margin: auto;
+  margin-block: 50px;
+  max-width: 500px;
+  color: black;
+
+  & header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+
+    & h1 {
+      font-family: var(--title-font);
+      order: 0;
+      font-style: italic;
+      font-size: 1.8em;
+      line-height: 1.4em;
+    }
+
+    & hr {
+      order: 3;
+      margin-block: 20px;
+      border: none;
+      align-self: center;
+
+      &::after {
+        content: '🎁 Gift this article | share | discuss';
+        cursor: pointer;
+        border-radius: 15px;
+        margin: 2px;
+        border: 1px solid rgb(0, 0, 0, 0.2);
+        padding: 5px 10px;
+        background: rgb(255, 255, 255, 0.8);
+        backdrop-filter: blur(5px);
+      }
+    }
+
+    & [itemprop="abstract"] {
+      font-size: 1.3rem;
+      opacity: 0.8;
+      font-weight: light;
+    }
+
+    & img {
+      order: 5;
+    }
+
+    & span {
+      align-self: flex-end;
+      font-family: "Sans Serif";
+      font-size: 0.8rem;
+      order: 10;
+    }
+  }
+
+  & main {
+    font-family: var(--body-font);
+  }
+}

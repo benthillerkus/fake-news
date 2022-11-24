@@ -1,15 +1,14 @@
 <script lang="ts">
-  import "$lib/reset.css";
-  import "$lib/systemfonts.css";
-  import { serialize } from "$lib/deser";
-  import { DefaultConfig, Fonts, type Config, type ISODate } from "$lib/types";
+  import "$lib/styles/reset.css";
+  import "$lib/styles/systemfonts.css";
   import type { PageData } from "./$types";
-  import Publication from "./[source]/[content]/Publication.svelte";
-  import Article from "./[source]/[content]/Article.svelte";
-  import EmojiFavicon from "$lib/EmojiFavicon.svelte";
-  import ActionButton from "$lib/ActionButton.svelte";
-  import { goto } from "$app/navigation";
-  import Theme from "$lib/Theme.svelte";
+  import { serialize } from "$lib/deser";
+  import { DefaultConfig, Fonts, Themes, type Config } from "$lib/types";
+  import Publication from "$lib/components/Publication.svelte";
+  import Article from "$lib/components/Article.svelte";
+  import EmojiFavicon from "$lib/components/EmojiFavicon.svelte";
+  import ActionButton from "$lib/components/ActionButton.svelte";
+  import Theme from "$lib/components/Theme.svelte";
 
   export let data: PageData;
   let config: Config = data.config as any;
@@ -45,7 +44,6 @@
           />
         {:else if key.endsWith("Font")}
           <select
-            type="text"
             list={key}
             bind:value={config[key]}
             placeholder={DefaultConfig[key]}
@@ -58,10 +56,19 @@
         {:else if key == "content"}
           <textarea bind:value={config[key]} placeholder={DefaultConfig[key]} />
         {:else if key == "style"}
-          <select bind:value={config[key]} placeholder={DefaultConfig[key]}>
-            <option value="blog">Blog</option>
-            <option value="newspaper">Newspaper</option>
+          <select
+            list={key}
+            bind:value={config[key]}
+            placeholder={DefaultConfig[key]}
+          >
+            {#each Themes as theme}
+              <option selected={theme == config[key]} value={theme}
+                >{theme}</option
+              >
+            {/each}
           </select>
+        {:else if key == "version"}
+          {config[key]}
         {:else}
           <input
             type="text"
@@ -87,7 +94,7 @@
     </Theme>
   </div>
   <div id="actions">
-    <ActionButton tooltip="Visit site" {link} icon={config.favicon} />
+    <ActionButton tooltip="Visit site" {link} icon={config.icon} />
     <ActionButton
       tooltip="Copy link to clipboard"
       action={() => navigator.clipboard.writeText(link)}

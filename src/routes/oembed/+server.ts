@@ -1,11 +1,12 @@
 import { deserialize } from "$lib/deser";
+import { upgradeVersion } from "$lib/versioning";
 import { json } from "@sveltejs/kit";
 import type { RequestHandler } from "./$types";
 
 export const GET: RequestHandler = async ({ url }) => {
   const page = url.searchParams.get("url")!;
   const config = page.replace(url.origin + "/blog/", "");
-  const deserialized = deserialize(config);
+  const deserialized = upgradeVersion(deserialize(config));
 
   const maxwidth = url.searchParams.get("maxwidth");
   const maxheight = url.searchParams.get("maxheight");

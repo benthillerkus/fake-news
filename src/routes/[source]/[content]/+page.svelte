@@ -1,13 +1,13 @@
 <script lang="ts">
+  import "$lib/styles/reset.css";
+
   import type { PageData } from "./$types";
   import type { Config } from "$lib/types";
   import { serialize } from "$lib/deser";
-  import "$lib/reset.css";
-  import EmojiFavicon from "$lib/EmojiFavicon.svelte";
-  import Theme from "$lib/Theme.svelte";
-  import Article from "./Article.svelte";
-  import Publication from "./Publication.svelte";
-  import ActionButton from "$lib/ActionButton.svelte";
+  import EmojiFavicon from "$lib/components/EmojiFavicon.svelte";
+  import Theme from "$lib/components/Theme.svelte";
+  import Article from "$lib/components/Article.svelte";
+  import Publication from "$lib/components/Publication.svelte";
 
   export let data: PageData;
   const config: Config = data.config as any;
@@ -15,7 +15,7 @@
   const oembed = `${data.url.origin}/oembed?url=${data.url.origin}/blog/${serialized}&format=json`;
 </script>
 
-<EmojiFavicon icon={config.favicon} />
+<EmojiFavicon icon={config.icon} />
 
 <svelte:head>
   <title>{config.title}</title>

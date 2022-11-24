@@ -1,8 +1,12 @@
 <script lang="ts">
-  import type { Config } from "./types";
+  import type { Config } from "../types";
+  import Blog from "$lib/styles/blog.pcss?inline";
+  import News from "$lib/styles/news.pcss?inline";
+  import { onDestroy } from "svelte";
 
   export let config: Config;
 
+  const Themes: any = { Blog, News };
   let node: HTMLDivElement;
   $: styleApiAvailable = node && node.style;
   let style: string = "display: contents;";
@@ -25,7 +29,19 @@
       style += `${name}:${value};`;
     }
   }
+
+  onDestroy(() => {
+    if (typeof document !== "undefined") {
+      document.querySelector("#stylesheet-theme")?.remove();
+    }
+  });
+
+  $: theme = `<style\ id="stylesheet-theme"\>${Themes[config.style]}\<\/style>`;
 </script>
+
+<svelte:head>
+  {@html theme}
+</svelte:head>
 
 <div bind:this={node} {style}>
   <slot />

@@ -2,10 +2,11 @@ export type Config = typeof DefaultConfig
 export type ISODate = `${number}-${number}-${number}`
 
 export const DefaultConfig: Record<string, string> = {
-  style: "blog" as "blog" | "newspaper",
+  version: "2",
+  style: "Blog",
   siteName: "I love Horses!",
-  siteDescription: "🐎 boys not allowed!!",
-  favicon: "🌸",
+  siteDescription: "boys not allowed!!",
+  icon: "🐎",
   themeColor: "pink",
   backgroundColor: "url('https://images.unsplash.com/photo-1601662528567-526cd06f6582?auto=format,compress&fit=crop') repeat repeat",
   navFont: "Handwriting",
@@ -21,3 +22,4 @@ export const DefaultConfig: Record<string, string> = {
 }
 
 export const Fonts = ["Serif", "Sans Serif", "Mono", "Handwriting"]
+export const Themes = ["Blog", "News"]

@@ -5,7 +5,7 @@
 
 @font-face {
   font-family: "Serif";
-  src: local(Eb Garamond), local(Bitter), local(Iowan Old Style), local(Apple Garamond), local(Baskerville), local(Times New Roman), local(Droid Serif), local(Times), local(Source Serif Pro), local(serif), local(Apple Color Emoji), local(Segoe UI Emoji), local(Segoe UI Symbol);
+  src: local(Eb Garamond), local(Iowan Old Style), local(Apple Garamond), local(Baskerville), local(Libre Baskerville), local(Noto Serif), local(Times New Roman), local(Droid Serif), local(Times), local(Source Serif Pro), local(serif), local(Apple Color Emoji), local(Segoe UI Emoji), local(Segoe UI Symbol);
 }
 
 @font-face {
