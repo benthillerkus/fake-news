@@ -6,10 +6,10 @@
   - [ ] Improve mobile experience
 - [ ] Add some sort of permanent storage mechanism
 - [ ] Random generation for certain fields (generic tech blog name...)
-- [ ] Different Styles
-  - [ ] Add custom logos
+- [x] Different Styles
+  - [x] Add custom logos
   - [ ] Dark mode
-- [ ] Fix too short pages
+- [x] Fix too short pages
 - [x] Fix title spacing 
 - [x] Share buttons
   - [x] Fix link vs button behaviour
@@ -18,6 +18,10 @@
    - [ ] Can't reset colors to values on allowed in CSS
   - [ ] Add share buttons to pages
 - [ ] Vercel OG
+- [ ] Allow installation on non-origin paths
+- [ ] Allow markdown
+- [ ] Use Vercel caching
+- [ ] Investigate brotli
 
 ## Developing
 
