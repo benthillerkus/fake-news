@@ -12,7 +12,7 @@ const config = {
   kit: {
     adapter: vercel( {
       edge: true,
-    } ),
+    } )
   }
 }
 
