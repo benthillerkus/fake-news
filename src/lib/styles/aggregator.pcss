@@ -13,13 +13,19 @@
     background: var(--theme-color);
     color: var(--theme-color-contrast);
     font-family: var(--nav-font);
-    height: 25px;
+    height: 30px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-end;
     padding: 1px;
     margin-bottom: 10px;
+
+    &::after {
+      content: "login";
+      margin-left: auto;
+      margin-right: 5px;
+    }
 
     & #brand {
       display: flex;
@@ -46,7 +52,8 @@
     }
 
     & a,
-    & span {
+    & span, &::after {
+      cursor: pointer;
       text-decoration: none;
       color: var(--theme-color-contrast);
       font-size: 1.2rem;
@@ -62,9 +69,59 @@
 }
 
 #article {
+  margin: 12px;
+
+  & header {
+    & h1 {
+      display: inline-block;
+      font-weight: normal;
+      pointer: cursor;
+    }
+
+    & p {
+      display: inline-block;
+      font-size: 0.8em;
+      margin-left: 3px;
+      cursor: pointer;
+
+      &::before {
+        content: "(";
+      }
+
+      &::after {
+        content: ")";
+      }
+    }
+
+    & p:hover {
+      text-decoration: underline;
+    }
+
+    & img {
+      display: none;
+    }
+
+    &::before {
+      display: inline;
+      content: "🔺";
+    }
+
+    & hr {
+      display: block;
+      background-color: white;
+      height: 50px;
+      resize: both;
+      margin-block: 20px;
+      border: solid 1px black;
+      border-radius: 2px;
+      width: min(600px, 100%);
+      height: 200px;
+    }
+  }
+
   & h1 {
     font-family: var(--title-font);
-    font-size: 2.5rem;
+    font-size: 1rem;
     margin-bottom: 10px;
   }
 }
