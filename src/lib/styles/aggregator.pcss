@@ -1,6 +1,7 @@
 #publication {
   --contrast-threshold: 50%;
-  --background-color-contrast: hsl(0, 0%, calc((var(--background-color-l) - var(--contrast-threshold)) * -100));
+  --bcc-luminance: calc((var(--background-color-l) - var(--contrast-threshold)) * -100);
+  --background-color-contrast: hsl(0, 0%, var(--bcc-luminance));
   --tcc-luminance: calc((var(--theme-color-l) - var(--contrast-threshold)) * -100);
   --theme-color-contrast: hsl(0, 0%, var(--tcc-luminance));
   margin: 12px auto;
@@ -77,7 +78,7 @@
   margin: 12px;
 
   & header {
-    color: hsla(0deg, 0%, var(--tcc-luminance), 0.5);
+    color: hsla(0deg, 0%, var(--bcc-luminance), 0.5);
 
     & h1 {
       display: inline-block;
