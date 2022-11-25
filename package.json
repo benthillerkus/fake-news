@@ -30,7 +30,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@vercel/og": "^0.0.21",
+		"@ethercorps/sveltekit-og": "^0.1.8",
 		"pako": "^2.1.0",
 		"svelte-markdown": "^0.2.3"
 	}
