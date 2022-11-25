@@ -184,8 +184,9 @@
     font-family: Mono;
     margin-block: 5px;
   }
-
+  
   .help {
+    pointer-events: none;
     opacity: 0;
     contain: paint;
     z-index: 1;
@@ -207,7 +208,7 @@
     cursor: help;
   }
 
-  .help:has(~ .info:hover) {
+  .help:has(~ .info:hover), .help:has(~ .info:focus) {
     transition-delay: 100ms;
     opacity: 1;
   }
