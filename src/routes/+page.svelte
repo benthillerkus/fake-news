@@ -28,6 +28,18 @@
 </svelte:head>
 
 <main style:--preview-width="1fr">
+    <a href="https://github.com/benthillerkus/fake-news"
+      ><img
+        decoding="async"
+        loading="lazy"
+        width="149"
+        height="149"
+        src="https://github.blog/wp-content/uploads/2008/12/forkme_right_green_007200.png?resize=149%2C149"
+        style="position: absolute; bottom: 0px; right: 0px; rotate: 90deg"
+        alt="Fork me on GitHub"
+        data-recalc-dims="1"
+      /></a
+    >
   <h1><a href={data.url.origin}>Make some <i>fake</i> News</a></h1>
   <form>
     {#each Object.keys(DefaultConfig) as key}
