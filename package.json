@@ -30,6 +30,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@vercel/og": "^0.0.21",
 		"pako": "^2.1.0",
 		"svelte-markdown": "^0.2.3"
 	}
