@@ -1,7 +1,8 @@
 #publication {
   --contrast-threshold: 50%;
   --background-color-contrast: hsl(0, 0%, calc((var(--background-color-l) - var(--contrast-threshold)) * -100));
-  --theme-color-contrast: hsl(0, 0%, calc((var(--theme-color-l) - var(--contrast-threshold)) * -100));
+  --tcc-luminance: calc((var(--theme-color-l) - var(--contrast-threshold)) * -100);
+  --theme-color-contrast: hsl(0, 0%, var(--tcc-luminance));
   margin: 12px auto;
   background: var(--background-color);
   color: var(--background-color-contrast);
@@ -13,12 +14,13 @@
     background: var(--theme-color);
     color: var(--theme-color-contrast);
     font-family: var(--nav-font);
-    height: 30px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-end;
-    padding: 1px;
+    height: 33px;
+    padding: 2px;
+    padding-bottom: 5px;
     margin-bottom: 10px;
 
     &::after {
@@ -52,7 +54,9 @@
     }
 
     & a,
-    & span, &::after {
+    & span,
+    &::after {
+      text-transform: lowercase;
       cursor: pointer;
       text-decoration: none;
       color: var(--theme-color-contrast);
@@ -62,6 +66,7 @@
     & a {
       &::before {
         content: "|";
+        font-weight: lighter;
         margin: 0 5px;
       }
     }
@@ -72,10 +77,12 @@
   margin: 12px;
 
   & header {
+    color: hsla(0deg, 0%, var(--tcc-luminance), 0.5);
+
     & h1 {
       display: inline-block;
       font-weight: normal;
-      pointer: cursor;
+      cursor: pointer;
     }
 
     & p {
@@ -102,21 +109,69 @@
     }
 
     &::before {
+      cursor: pointer;
       display: inline;
-      content: "🔺";
+      content: "▲";
+      font-size: 0.8em;
+      position: relative;
+      bottom: 5px;
+      right: 2px;
+    }
+
+    & span {
+      text-transform: lowercase;
+      position: relative;
+      bottom: 30px;
+      left: 15px;
+      font-size: 0.8em;
+
+      &::before {
+        content: "";
+        margin-right: 100000px;
+      }
+
+      &::after {
+        margin-left: 5px;
+        content: "420 points | hide | past | favorite | 130 comments";
+        cursor: pointer;
+      }
+    }
+
+    /* comment box */
+
+    & hr, &::after {
+      margin-left: 15px;
+      border-radius: 0.2rem;
+      border: solid 1px black;
+
     }
 
     & hr {
       display: block;
       background-color: white;
+      margin-top: -13px;
       height: 50px;
       resize: both;
-      margin-block: 20px;
-      border: solid 1px black;
-      border-radius: 2px;
-      width: min(600px, 100%);
+      width: min(600px, calc(100% - 30px));
       height: 200px;
     }
+
+    &::after {
+      content: "add comment";
+      position: relative;
+      top: 15px;
+      background: buttonface;
+      padding: 2px 5px;
+      font-size: 0.9em;
+      cursor: pointer;
+      font-family: Mono;
+      color: black;
+    }
+  }
+
+  & main {
+    margin-top: 60px;
+    margin-left: 15px;
   }
 
   & h1 {
