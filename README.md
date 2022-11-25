@@ -19,7 +19,7 @@
   - [ ] Add share buttons to pages
 - [ ] Vercel OG
 - [ ] Allow installation on non-origin paths
-- [ ] Allow markdown
+- [x] Allow markdown
 - [ ] Use Vercel caching
 - [ ] Investigate brotli
 
