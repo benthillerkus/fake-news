@@ -21,5 +21,13 @@ export const DefaultConfig: Record<string, string> = {
   publishedDate: "2012-06-13" as ISODate,
 }
 
+export const Help: Record<string, string> = {
+  icon: "Try pasting a link to an image instead 😎",
+  themeColor: "Most styles feed this into the CSS `background` property - so you can also add gradients or images if you want.",
+  backgroundColor: "The automatic text color selection only works for hex codes",
+  navFont: "You can use a custom font by overriding this field in the url -- e.g. `?navFont=Copperplate%20Gothhic`",
+  content: "This is the main content of the page. It's written in Markdown, so you can use all the usual formatting tricks.",
+}
+
 export const Fonts = ["Serif", "Sans Serif", "Mono", "Handwriting"]
 export const Themes = ["Blog", "News", "Aggregator"]

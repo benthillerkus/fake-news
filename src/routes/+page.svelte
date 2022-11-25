@@ -3,7 +3,7 @@
   import "$lib/styles/systemfonts.css";
   import type { PageData } from "./$types";
   import { serialize } from "$lib/deser";
-  import { DefaultConfig, Fonts, Themes, type Config } from "$lib/types";
+  import { DefaultConfig, Fonts, Help, Themes, type Config } from "$lib/types";
   import Publication from "$lib/components/Publication.svelte";
   import Article from "$lib/components/Article.svelte";
   import EmojiFavicon from "$lib/components/EmojiFavicon.svelte";
@@ -33,6 +33,10 @@
     {#each Object.keys(DefaultConfig) as key}
       <label
         >{key}
+        {#if Help[key]}
+          <span class="help">{Help[key]}</span>
+          <span class="info"><i>info</i></span>
+        {/if}
         {#if key.endsWith("Date")}
           <input type="date" bind:value={config[key]} />
         {:else if key.endsWith("Color")}
@@ -167,6 +171,33 @@
   label {
     font-family: Mono;
     margin-block: 5px;
+  }
+
+  .help {
+    opacity: 0;
+    contain: paint;
+    z-index: 1;
+    font-size: 1rem;
+    position: absolute;
+    background-color: buttonface;
+    border-radius: 6px;
+    border-width: 1px;
+    border-style: solid;
+    padding-block: 2px;
+    padding-inline: 10px;
+    transition: ease-out 0.2s;
+    transition-delay: 0s;
+    translate: -45px -35px;
+  }
+
+  label:has(.help),
+  .info {
+    cursor: help;
+  }
+
+  .help:has(~ .info:hover) {
+    transition-delay: 100ms;
+    opacity: 1;
   }
 
   input {
