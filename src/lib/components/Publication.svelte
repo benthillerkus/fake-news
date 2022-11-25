@@ -30,7 +30,7 @@
     <nav>
       <a href={`/?config=${serialized}`}>Edit</a>
       <a href="/#">Blog</a>
-      <a href="/#">About</a>
+      <a href="/about">About</a>
     </nav>
   </header>
   <main>
