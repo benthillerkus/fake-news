@@ -4,12 +4,24 @@
   --background-color-contrast: hsl(0, 0%, var(--bcc-luminance));
   --tcc-luminance: calc((var(--theme-color-l) - var(--contrast-threshold)) * -100);
   --theme-color-contrast: hsl(0, 0%, var(--tcc-luminance));
-  margin: 12px auto;
+  margin: auto;
   background: var(--background-color);
   color: var(--background-color-contrast);
   font-family: var(--body-font);
-  height: 100%;
+  position: relative;
+  top: 10px;
+  height: calc(100% - 20px);
   width: 85%;
+
+  @media (max-width: 768px) {
+    top: 0;
+    height: 100%;
+    width: 100%;
+
+    & #titlebar {
+      height: fit-content !important;
+    }
+  }
 
   & #titlebar {
     background: var(--theme-color);
@@ -79,6 +91,7 @@
 
   & header {
     color: hsla(0deg, 0%, var(--bcc-luminance), 0.5);
+    contain: layout;
 
     & h1 {
       display: inline-block;
