@@ -30,4 +30,4 @@ export const Help: Record<string, string> = {
 }
 
 export const Fonts = ["Serif", "Sans Serif", "Mono", "Handwriting"]
-export const Themes = ["Blog", "News", "Aggregator"]
+export const Themes = ["Blog", "News", "Aggregator", "Raw"]

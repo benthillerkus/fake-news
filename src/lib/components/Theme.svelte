@@ -3,12 +3,13 @@
   import Blog from "$lib/styles/blog.pcss?inline";
   import News from "$lib/styles/news.pcss?inline";
   import Aggregator from "$lib/styles/aggregator.pcss?inline";
+  import Raw from "$lib/styles/raw.pcss?inline";
   import { hexToRgb, rgbToHsl } from "$lib/conversions";
   import { onDestroy } from "svelte";
+  const Themes: any = { Blog, News, Aggregator, Raw };
 
   export let config: Config;
 
-  const Themes: any = { Blog, News, Aggregator };
   let node: HTMLDivElement;
   let style: string = "display: contents;";
   let pastAnimationFrame: any;
